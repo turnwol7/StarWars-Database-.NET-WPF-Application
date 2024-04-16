@@ -1,0 +1,46 @@
+﻿<Window x:Class="StarWarsUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="DoggyDoDo Query App" Height="450" Width="800">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Margin="0,10,10,10" Grid.Column="1">
+            <Button Content="List People" Click="ListPeople" Margin="0 0 0 5"/>
+            <Button Content="List Planets" Click="ListPlanets" Margin="0 0 0 5"/>
+            <Button Content="List Tall People" Click="ListTallPeople" Margin="0 0 0 5"/>
+
+
+            <StackPanel Margin="0,10,10,10" Grid.Column="1" Orientation="Horizontal">
+                <RadioButton Content="Male" GroupName="Gender" Checked="FilterPeopleByGender"/>
+                <RadioButton Content="Female" GroupName="Gender" Checked="FilterPeopleByGender"/>
+            </StackPanel>
+
+            <StackPanel Margin="0,10,10,10" Grid.Column="1">
+                <Button Content="Edit" Click="Edit_Click" Margin="0 0 0 5"/>
+                <!-- Add other buttons or controls for editing data -->
+            </StackPanel>
+
+        </StackPanel>
+
+        <ListBox x:Name="lstResults" Grid.Row="1" Grid.Column="1" SelectionChanged="lstResults_SelectionChanged" Margin="30"/>
+
+        <StatusBar Grid.Row="2" Grid.ColumnSpan="2" x:Name="statusBar" VerticalAlignment="Bottom">
+            <StatusBarItem Width="267">
+                <TextBlock x:Name="statusText"/>
+            </StatusBarItem>
+        </StatusBar>
+
+
+    </Grid>
+</Window>
